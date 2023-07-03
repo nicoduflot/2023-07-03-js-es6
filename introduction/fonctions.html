@@ -6,6 +6,72 @@
     <title>Formation JavaScript ES6</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script>
+        function circo(rayon){
+            let circonference = 0;
+            circonference = 2 * Math.PI * rayon;
+            return circonference;
+        }
+
+        console.log(circo(2));
+        console.log(circo(5));
+
+        /* 
+        ...  => rest parameter => spread parameter => opérateur variadique
+        function test(...valeur){
+            // valeurs devient un tableau
+        }
+
+        test(45, 'ret', 13);
+            => [45, 'ret', 13]
+        */
+
+        function addition(...valeurs){
+            let res = 0;
+            for(let nombre of valeurs){
+                if( !isNaN(nombre) ){
+                    res = res + parseFloat(nombre);
+                }
+            }
+            return res;
+        }
+
+        console.log(addition(1,2,'3',4,5, 'test',6,7,8,9));
+
+        // fonction de callback ou fonction de rappel ou fonction anonyme
+
+        let maFonctionAnonyme = function(name = null){
+            /* un if simple peut être écrit en "raccourci", en utilisant la forme ternaire  */
+            /*
+            
+            variable = (condition)?  résultat si la condition est respectée : résultat si la condition n'est pas respectée;
+            
+            */
+           /*
+            if(name === null){
+                return 'Hello Kitty';
+            }else{
+                return `Hello ${name}`;
+            }
+            */
+           let res = (name === null )? 'Kitty' : name;
+
+            return `Hello ${res}`;
+        };
+
+        console.log(maFonctionAnonyme());
+        console.log(maFonctionAnonyme('Dolly'));
+
+        /* 
+        fonction auto-exécutée 
+        ( la fonction de rappel avec ou sans paramètre )( les paramètre s'il y en a de la fonction de rappel );
+        */
+
+        (
+            function(name){
+                console.log(`Coucou ${name}`);
+            }
+        )('Nicolas');
+
 
     </script>
 </head>
