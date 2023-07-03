@@ -154,7 +154,113 @@
         carsClone.pop();
         console.log(`cars : ${cars}`);
         console.log(`carsClone : ${carsClone}`);
+        
+        carsClone.reverse();
+        console.log(`carsClone : ${carsClone}`);
+        
+        carsClone.sort();
+        console.log(`carsClone : ${carsClone}`);
+        carsClone.reverse();
+        console.log(`carsClone : ${carsClone}`);
 
+        let tabExemple = '123.5,12,54.3'.split(',');
+        let chaineExemple = [123.5,12,54.3].join(';');
+        console.log(chaineExemple);
+
+        let motTest = 'kayak';
+        let tabMot = motTest.split('');
+        console.log(tabExemple);
+        console.log(tabMot);
+        let motInverse = tabMot.reverse().join('');
+        console.log(motInverse);
+        if(motInverse === motTest){
+            console.log(`${motTest} est un palindrome`);
+        }else{
+            console.log(`${motTest} n'est pas un palindrome`);            
+        }
+
+        // et les tableaux à 2 dimensions ?
+        carsTest = [ ['Fiat', 1996], ['Kya', 1995], ['Kya', 1990], ['Ford', 1950], ['12', '62'] ];
+        console.log(carsTest);
+        console.table(carsTest);
+        carsTest.sort();
+        console.table(carsTest);
+        console.log('-------- parcourir un tableau à "2" dimensions avec for -----');
+        for(let i = 0; i < carsTest.length; i = i + 1){
+            for(let j = 0; j < carsTest[i].length; j = j + 1){
+                console.log(carsTest[i][j]);
+            }
+        }
+        
+        console.log('-------- parcourir un tableau à "2" dimensions avec for of -----');
+        for(let value of carsTest){
+            for(let subValue of value){
+                console.log(subValue);
+            }
+        }
+
+        // trouver un élément du tableau selon une condition
+        console.log('------------- .find() --------------');
+        let arrayNum = [5, 8, 12, 130, 44];
+        
+        let found = arrayNum.find(function(element){
+            /*
+            if(element > 20){
+                return element;
+            }
+            */
+           return element > 20;
+        });
+        
+        console.log(found, typeof found);
+        // trouver toutes les occurences d'un élément correspondant à une condition filter
+        console.log('------------- .filter() --------------');
+        let filtered = arrayNum.filter(function(element){
+            return element > 20;
+        });
+
+        console.log(filtered);
+        /*
+        function(element){
+            return element > 20;
+        }
+
+        (element)=>{
+            return element > 20;
+        }
+
+        element=>{
+            return element > 20;
+        }
+        
+        element=>element > 20
+
+        */
+        
+        let filtered2 = arrayNum.filter(element=>element > 20);
+        console.log(filtered2);
+
+        /* 
+        l'opérateur fleche ou arrow operator sert dans les méthodes d'objet pour éviter de perdre 
+        la référence du this quand des fonctions de rappel sont imbriquées => les conséquences
+        */
+
+        console.log('-------- les consequences -----------------');
+        let monObjet = {
+            numbers: [5, 8, 12, 130, 3, 44],
+            affTab: function(){
+                //console.log(this);
+                //console.log(this.numbers);
+                //let _this = this;
+                this.numbers.map((element)=>{
+                    console.log(this);
+                    //console.log(_this);
+                });
+            }
+        };
+
+        monObjet.affTab();
+        
     </script>
 </head>
 <body>
@@ -173,7 +279,10 @@
                             <a href="../introduction/index.html" title="premiers scripts JS" >Intro JS</a>
                         </li>
                         <li>
-                            <a href="../introduction/tableaux.html" title="premiers scripts JS" >Les tableaux</a>
+                            <a href="../introduction/tableaux.html" title="Les tableaux JS JS">Les tableaux</a>
+                        </li>
+                        <li>
+                            <a href="../introduction/fonctions.html" title="Les fonctions JS">Les fonctions</a>
                         </li>
                     </ul>
                 </details>
@@ -185,7 +294,12 @@
         </ul>
     </nav>
     <main>
-
+        <article>
+            <h2>Les tableaux</h2>
+            <p>
+                Tout est dans le code et la console
+            </p>
+        </article>
     </main>
     <footer>
 
