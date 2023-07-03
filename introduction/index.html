@@ -23,9 +23,9 @@
         console.log(typeof nom);
 
         nom = nom + 1; // affiche 36
-        nom = nom + parseFloat('2.5'); // affiche 38.5
-
-        console.log(nom);
+        console.log(nom, typeof nom);
+        nom = nom + '2.5'; // affiche 362.5
+        console.log(nom, typeof nom);
 
         const LANGFR = 'FR-fr';
         const LANGUK = 'EN-en';
@@ -33,6 +33,90 @@
         const POUND = '£';
         const DOLLAR = '$';
         const EURO = '€';
+
+        /**
+         * 
+         * Types
+         * [primitif]
+         * number           => nombre (entier, à virgule)
+         * bool             => Booléen true ou false
+         * 
+         * [référence]
+         * String           => chaîne de caractère
+         * Array            => tableau de données
+         * Object           => object
+         * JSON             => JavaScript Object Notation
+         * 
+        */
+
+        /**
+         * Opérateurs
+         * 
+         * Mathématiques
+         * 
+         * +    => addition (mais aussi la concaténation pour les chaîne de caractère) 'toto' + 'tata' => 'tototata';
+         *                      'nicolas a ' + age + ' ans' => 'nicolas a 43 ans'
+         *                      `nicolas a ${age} ans`
+         * -    => soustraction
+         * /    => division
+         * %    => modulo : renvoi le reste d'une division entière 5%2 => 1
+         * *    => multiplication
+         * **   => Opérateur puissance remplace Math.pow()
+         *      => 2 exposant 3 Math.pow(2,3) <=> 2**3
+         * ++   => incrémentation
+         * --   => décrémentation
+         * 
+        */
+
+        let cpt = 0;
+
+        cpt = cpt + 1;      // ajoute 1 à cpt donc 1
+        console.log(cpt);   // affiche 1
+        cpt++;              // ajoute 1 à cpt donc 2
+        console.log(cpt);   // affiche 2
+        console.log(cpt++); // affiche 2 puis passe cpt à 3
+        console.log(cpt);   // affiche 3
+        console.log(++cpt); // ajoute 1 à cpt puis affiche cpt 4
+
+        /**
+         * Logique
+         * 
+         * && (ET)
+         *          a && b => a est vrai et b est vrai  =>  vrai
+         *          a && b => a est vrai et b est faux  =>  faux
+         *          a && b => a est faux et b est vrai  =>  faux
+         *          a && b => a est faux et b est faux  =>  faux
+         * 
+         *  || (OU)
+         *          a || b => a est vrai et b est vrai  =>  vrai
+         *          a || b => a est vrai et b est faux  =>  vrai
+         *          a || b => a est faux et b est vrai  =>  vrai
+         *          a || b => a est faux et b est faux  =>  faux
+         * 
+         * ! (NON)  
+         *          !a  => si a ext vrai, !a => faux
+         *          !a  => si a est faux, !a => vrai
+         * 
+         * ^ (NON OU ou XOR) : OU EXCLUSIF BINAIRE
+         *          a ^ b => a est vrai et b est vrai  =>  faux
+         *          a ^ b => a est vrai et b est faux  =>  vrai
+         *          a ^ b => a est faux et b est vrai  =>  vrai
+         *          a ^ b => a est faux et b est faux  =>  faux
+         * 
+        */
+
+        /*
+        créer deux variables nombre et aficher
+            leur addition
+            leur soustraction
+            leur multiplication
+                 division
+                 le modulo
+            var1 puissance var2
+        */
+
+        let a;
+        let b;
 
     </script>
 </head>
