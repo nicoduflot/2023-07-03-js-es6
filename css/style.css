@@ -15,6 +15,6 @@ a, a:visited{
     font-weight: bold;
 }
 
-ul li a, ul li a:visited{
+ul li{
     padding: 0.5rem 1rem;
 }
