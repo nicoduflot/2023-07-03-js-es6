@@ -18,5 +18,44 @@ loaded(function(){
 
     console.log(document.getElementsByTagName('h1'));
 
+    const allP = document.querySelectorAll('p:not(p.special)');
+    allP.forEach(function(paragraphe){
+        paragraphe.addEventListener('click', function(){
+            paragraphe.classList.toggle('fondGris20');
+            q('#showP').innerHTML = paragraphe.innerHTML;
+        });
+    });
+
+    const buttonTest = qA('.testez-moi');
+    console.log(buttonTest);
+
+    buttonTest.forEach(button=>{
+        button.addEventListener('click', function(event){
+            event.stopPropagation();
+            qA('p').forEach(function(paragraphe){
+                console.log(paragraphe.innerText);
+            });
+        });
+    })
+
+    q('#showP').addEventListener('click', function(event){
+        console.log(event);
+        console.log(event.target);
+    });
+
+    const imgPipBoy = q('#imgOver');
     
+    imgPipBoy.addEventListener('mouseover', function(){
+        //console.log(this.getAttribute('src'));
+        this.setAttribute('src', '../images/pip-boy-thumb-up.png');
+        this.setAttribute('alt', 'Pip boy avec le bras droit');
+        this.nextElementSibling.innerHTML = 'Pip boy avec le bras droit';
+    });
+    
+    imgPipBoy.addEventListener('mouseleave', function(){
+        this.setAttribute('src', '../images/pip-boy-thumb-down.png');
+        this.setAttribute('alt', 'Pip boy sans le bras droit');
+        this.nextElementSibling.innerHTML = 'Pip boy sans le bras droit';
+    });
+
 });

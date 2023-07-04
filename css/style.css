@@ -12,6 +12,12 @@
     --colonne-3-4: calc(75% - 2 * var(--gutter));
 }
 
+/* déclarations générales */
+
+#showP{
+    font-family: monospace;
+}
+
 /* classes */
 .container{
     width: 100%;
@@ -36,6 +42,9 @@
     width: var(--colonne-1-1);
 }
 
+.fondGris20{
+    background-color: rgba(0,0,0, 0.2);
+}
 
 /* structure */
 
@@ -61,8 +70,6 @@ a, a:visited{
     text-decoration: none;
     font-family: 'RobotoBold';
 }
-
-
 
 body > header{
     padding-top: 1rem;
