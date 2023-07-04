@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation JavaScript ES6</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/scripts.js"></script>
+    <script>
+        loaded(function(){
+            let nbSpan = 1;
+
+            q('#addSpan').addEventListener('click', function(){
+                const testSpan = document.createElement('span');
+                testSpan.classList.add('testSpan');
+                const content = document.createTextNode(`test span n°${nbSpan}`);
+                nbSpan = nbSpan + 1;
+                testSpan.appendChild(content);
+                testSpan.addEventListener('click', function(){
+                    this.remove();
+                });
+                q('#test').appendChild(testSpan);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="../">
+                <h1>Formation JavaScript ES6</h1>
+            </a>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul class="navigation">
+                <li>
+                    <details>
+                        <summary>
+                            Introduction
+                        </summary>
+                        <ul class="navigation">
+                            <li>
+                                <a href="../introduction/index.html" title="premiers scripts JS">Intro JS</a>
+                            </li>
+                            <li>
+                                <a href="../introduction/tableaux.html" title="Les tableaux JS JS">Les tableaux</a>
+                            </li>
+                            <li>
+                                <a href="../introduction/fonctions.html" title="Les fonctions JS">Les fonctions</a>
+                            </li>
+                            <li>
+                                <a href="../introduction/destructuration.html" title="La destructuration">La
+                                    destructuration</a>
+                            </li>
+                            <li>
+                                <a href="../introduction/storage.html" title="Storage">Storage</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>
+                            Le DOM
+                        </summary>
+                        <ul class="navigation">
+                            <li>
+                                <a href="../dom/index.html" title="Le DOM : Document Object Model">DOM</a>
+                            </li>
+                            <li>
+                                <a href="../dom/dom.html" title="Le DOM : Créer dans le DOM">Créer dans le DOM</a>
+                            </li>
+                            <li>
+                                <a href="../dom/css.html" title="Le DOM : CSS">DOM & CSS</a>
+                            </li>
+                            <li>
+                                <a href="../dom/dataset.html" title="Le DOM : Les dataset">Dataset</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <section class="row">
+            <article class="col-100">
+                <h2>Créer dans le DOM</h2>
+                <p>
+                    <button id="addSpan">
+                        Ajouter un span dans le paragraphe.
+                    </button>
+                </p>
+                <p id="test">
+
+                </p>
+            </article>
+            <article class="col-50">
+                <h2>To do list</h2>
+                <p>
+                    On écrit un élément de la liste dans le champ, on clique sur "ajouter". Un élément li est ajouté, si on clique dessus il est supprimé. 
+                    Quand on ajoute un élément, on véifie que le champ n'est pas vide, une fois ajouté le champs est vidé.
+                </p>
+                <input type="text" id="listItem" />
+                <button id="addItem">Ajouter</button>
+            </article>
+            <article class="col-50">
+                <h2>Ma liste</h2>
+                <div id="liste">
+                    <ul id="toDoList">
+
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            &copy; DAWAN - 07-2023
+        </div>
+    </footer>
+</body>
+</html>
