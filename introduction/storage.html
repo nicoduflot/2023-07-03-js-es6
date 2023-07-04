@@ -19,13 +19,13 @@
     </header>
     <nav>
         <div class="container">
-            <ul>
+            <ul class="navigation">
                 <li>
                     <details>
                         <summary>
                             Introduction
                         </summary>
-                        <ul>
+                        <ul class="navigation">
                             <li>
                                 <a href="../introduction/index.html" title="premiers scripts JS">Intro JS</a>
                             </li>
@@ -45,7 +45,27 @@
                         </ul>
                     </details>
                 </li>
-                <li></li>
+                <li>
+                    <details>
+                        <summary>
+                            Le DOM
+                        </summary>
+                        <ul class="navigation">
+                            <li>
+                                <a href="../dom/index.html" title="Le DOM : Document Object Model">DOM</a>
+                            </li>
+                            <li>
+                                <a href="../dom/dom.html" title="Le DOM : Créer dans le DOM">Créer dans le DOM</a>
+                            </li>
+                            <li>
+                                <a href="../dom/css.html" title="Le DOM : CSS">DOM & CSS</a>
+                            </li>
+                            <li>
+                                <a href="../dom/dataset.html" title="Le DOM : Les dataset">Dataset</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -53,82 +73,85 @@
         </div>
     </nav>
     <main class="container">
-        <article>
-            <h2>Le stockage des données en JS</h2>
-        </article>
-        <article>
-            <h3>Session storage</h3>
-            <p>
-                <label>Username</label> 
-                <input type="text" id="sessionUser" />
-            </p>
-            <p>
-                Username enregistré : 
-                <span id="usernameLogged"></span>
-            </p>
-            <p>
-                <button onclick="sessionUserNameLog()">
-                    Enregistrer UserName en session
-                </button>
-            </p>
-            <p>
-                <button onclick="sessionDeleteUsername()">
-                    Supprimer username et son contenu
-                </button>
-            </p>
-            <p>
-                <button onclick="sessionClearUsername()">
-                    Vider la session de son contenu
-                </button>
-            </p>
-        </article>
-        <article>
-            <h3>Local storage</h3>
-            <p>
-                <label>Username</label> 
-                <input type="text" id="localUser" />
-            </p>
-            <p>
-                Username enregistré : 
-                <span id="usernameLocalLogged"></span>
-            </p>
-            <p>
-                <button onclick="localUserNameLog()">
-                    Enregistrer UserName en session
-                </button>
-            </p>
-            <p>
-                <button onclick="localDeleteUsername()">
-                    Supprimer username et son contenu
-                </button>
-            </p>
-            <p>
-                <button onclick="localClearUsername()">
-                    Vider la session de son contenu
-                </button>
-            </p>
-        </article>
-        <article>
-            <h3>Les cookies</h3>
-            <p>
-                <label>User name</label> 
-                <input type="text" id="cookieUsername" />
-            </p>
-            <p>
-                Username enregistré : 
-                <span id="CookieLogUsername"></span>
-            </p>
-            <p>
-                <button onclick="logCookie()">
-                    Enregistrer username en cookie
-                </button>
-            </p>
-            <p>
-                <button onclick="unlogCookie()">
-                    Supprimer username en cookie
-                </button>
-            </p>
-        </article>
+        <section class="row">
+
+            <article class="col-100">
+                <h2>Le stockage des données en JS</h2>
+            </article>
+            <article class="col-50">
+                <h3>Session storage</h3>
+                <p>
+                    <label>Username</label> 
+                    <input type="text" id="sessionUser" />
+                </p>
+                <p>
+                    Username enregistré : 
+                    <span id="usernameLogged"></span>
+                </p>
+                <p>
+                    <button onclick="sessionUserNameLog()">
+                        Enregistrer UserName en session
+                    </button>
+                </p>
+                <p>
+                    <button onclick="sessionDeleteUsername()">
+                        Supprimer username et son contenu
+                    </button>
+                </p>
+                <p>
+                    <button onclick="sessionClearUsername()">
+                        Vider la session de son contenu
+                    </button>
+                </p>
+            </article>
+            <article class="col-50">
+                <h3>Local storage</h3>
+                <p>
+                    <label>Username</label> 
+                    <input type="text" id="localUser" />
+                </p>
+                <p>
+                    Username enregistré : 
+                    <span id="usernameLocalLogged"></span>
+                </p>
+                <p>
+                    <button onclick="localUserNameLog()">
+                        Enregistrer UserName en session
+                    </button>
+                </p>
+                <p>
+                    <button onclick="localDeleteUsername()">
+                        Supprimer username et son contenu
+                    </button>
+                </p>
+                <p>
+                    <button onclick="localClearUsername()">
+                        Vider la session de son contenu
+                    </button>
+                </p>
+            </article>
+            <article class="col-100">
+                <h3>Les cookies</h3>
+                <p>
+                    <label>User name</label> 
+                    <input type="text" id="cookieUsername" />
+                </p>
+                <p>
+                    Username enregistré : 
+                    <span id="CookieLogUsername"></span>
+                </p>
+                <p>
+                    <button onclick="logCookie()">
+                        Enregistrer username en cookie
+                    </button>
+                </p>
+                <p>
+                    <button onclick="unlogCookie()">
+                        Supprimer username en cookie
+                    </button>
+                </p>
+            </article>
+        </section>
     </main>
     <footer>
         <div class="container">
