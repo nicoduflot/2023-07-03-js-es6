@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation JavaScript ES6</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/scripts.js"></script>
     <script src="../js/dom.js"></script>
 </head>
 
@@ -73,7 +74,55 @@
         </div>
     </nav>
     <main class="container">
-        
+        <section class="row">
+            <article class="col-100">
+                <h2 id="titrePrincipal">D.O.M. Document Object Model</h2>
+                <p>
+                    le <b>DOM</b> nous permet de repérer, analyser, modifier et
+                    supprimer des éléments de la page HTML
+                </p>
+                <p>
+                    Il faut que tous les éléments soient chargés pour qu'il soit
+                    possible d'agir sur eux avec JS.
+                    On écoute l'évènement de la fenêtre DOMContentLoaded qui survient
+                    quand la page est totalement chargée.
+                </p>
+                <p>
+                    <button class="btn btn-outline-primary btn-sm testez-moi">Testez-moi</button>
+                </p>
+                <h3 class="titreDeChapitre">Agir sur le DOM</h3>
+                <ul>
+                    <li>Connaître l'élément surveillé l'élément du DOM, de la page</li>
+                    <li>Connaître l'événement écouté : le déclencheur</li>
+                </ul>
+                <p>
+                    <button class="btn btn-secondary" id="checkP">
+                        Tester les paragraphes
+                    </button>
+                </p>
+                <div id="showP">
+
+                </div>
+                <p id="special">
+                    Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit.
+                    Nihil hic numquam magnam ullam,
+                    ea odio illo doloremque molestias
+                    accusamus corporis corrupti doloribus
+                    ab! Mollitia provident quibusdam libero,
+                    fugit a perferendis.
+                </p>
+                <figure>
+                    <img src="../images/pip-boy-thumb-down.png" alt="Pip boy sans le bras droit" width="200"
+                        id="imgOver" />
+                    <figcaption>
+                        Pip boy sans le bras droit
+                    </figcaption>
+                </figure>
+            </article>
+            <article>
+            </article>
+        </section>
     </main>
     <footer>
         <div class="container">
@@ -81,5 +130,8 @@
         </div>
     </footer>
 </body>
+<script>
+    console.log('page chargée');
+</script>
 
 </html>

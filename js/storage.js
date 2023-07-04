@@ -1,5 +1,5 @@
 function sessionUserNameLog(){
-    let username = document.getElementById('sessionUser');
+    const username = document.getElementById('sessionUser');
     console.log(username.value);
     if(username.value !== ''){
         sessionStorage.setItem('username', username.value);
@@ -67,14 +67,27 @@ function checkCookie(){
     console.log('cookie(s) actuel(s)', document.cookie);
 }
 
+/**
+ * 
+ * @param {String} name - nom du cookie
+ * @param {String} value - valeur du cookie
+ * @returns
+ * @param {Int} days - nombre de jours de vallidité du cookie
+ */
 function setCookie(name, value = '', days = -1){
-    let maxAge = days * 24 * 60 * 60;
-    let chaineCookie = `${name}=${value}; max-age=${maxAge}; path=/introduction; Samesite=Strict; secure`;
+    const maxAge = days * 24 * 60 * 60;
+    const chaineCookie = `${name}=${value}; max-age=${maxAge}; path=/introduction; Samesite=Strict; secure`;
     document.cookie = chaineCookie;
+    return true;
 }
 
+/**
+ * 
+ * @param {String} name 
+ * @returns 
+ */
 function getCookie(name){
-    let tabCookie = document.cookie.split('; ');
+    const tabCookie = document.cookie.split('; ');
     //console.log(tabCookie);
     for(cookie of tabCookie){
         //console.log(cookie);

@@ -17,17 +17,17 @@
         let c = liste[2];
         */
 
-        let [a, b, c] = liste;
+        const [a, b, c] = liste;
         console.log(`a : ${a}, b : ${b}, c : ${c}`);
 
-        let [d, , f, g] = liste;
+        const [d, , f, g] = liste;
         console.log(`d : ${d}, f : ${f}, g : ${g}`);
 
-        let [h, i, j, k = 0, l = 5] = liste;
+        const [h, i, j, k = 0, l = 5] = liste;
         console.log(`h : ${h}, i : ${i}, j : ${j}, k : ${k}, l : ${l}`);
 
         function truc(unTruc = 12, uneOption = false, ...valeurs) {
-            let [a = 0, b = false, c = 'Compta'] = valeurs;
+            const [a = 0, b = false, c = 'Compta'] = valeurs;
             console.log(unTruc, uneOption, a, b, c);
             console.log(valeurs);
         }

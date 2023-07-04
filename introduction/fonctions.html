@@ -39,7 +39,7 @@
 
         // fonction de callback ou fonction de rappel ou fonction anonyme
 
-        let maFonctionAnonyme = function(name = null){
+        const maFonctionAnonyme = function(name = null){
             /* un if simple peut être écrit en "raccourci", en utilisant la forme ternaire  */
             /*
             
@@ -53,7 +53,7 @@
                 return `Hello ${name}`;
             }
             */
-           let res = (name === null )? 'Kitty' : name;
+            const res = (name === null )? 'Kitty' : name;
 
             return `Hello ${res}`;
         };
