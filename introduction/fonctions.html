@@ -102,7 +102,7 @@
         
         tableauDeFruits.sort();
         console.log(tableauDeFruits);
-        tabTemp = [];
+        let tabTemp = [];
 
         let cptFruit = 1;
 
@@ -121,7 +121,8 @@
         console.log(tableauxDoublons);
         console.log(tabTemp);
         /* maintenant on n'écrit dans tableauDeFruitsles fruits une seule fois */
-        tableauDeFruits.splice(0);
+        //tableauDeFruits.splice(0);
+        tableauDeFruits = []; // ça marche aussi
         tableauDeFruits = tabTemp.slice();
         console.log(tableauDeFruits);
 
@@ -150,6 +151,9 @@
                             </li>
                             <li>
                                 <a href="../introduction/fonctions.html" title="Les fonctions JS">Les fonctions</a>
+                            </li>
+                            <li>
+                                <a href="../introduction/destructuration.html" title="La destructuration">La destructuration</a>
                             </li>
                         </ul>
                     </details>
