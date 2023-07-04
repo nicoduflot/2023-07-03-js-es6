@@ -1,5 +1,12 @@
+@import url('./RobotoBold.css');
+@import url('./RobotoRegular.css');
+
 :root{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'RobotoRegular',Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 0;
 }
 
 nav ul{
@@ -9,12 +16,70 @@ nav ul{
     flex-wrap: wrap;
 }
 
+h1, h2, h3, h4, h5, h6{
+    font-family: 'RobotoBold';
+    margin: 0;
+}
+
+a h1, a:visited h1{
+    color: white;
+}
+
 a, a:visited{
     color: #007BFF;
     text-decoration: none;
-    font-weight: bold;
+    font-family: 'RobotoBold';
 }
 
 nav ul li{
     padding: 0.5rem 1rem;
+}
+
+body > header{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: black;
+}
+
+body > footer{
+    background-color: black;
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media  ( min-width: 576px){
+    .container{
+        width: 540px;
+    }
+}
+
+@media ( min-width: 768px){
+    .container{
+        width: 720px;
+    }
+}
+
+@media ( min-width: 992px){
+    .container{
+        width: 960px;
+    }
+}
+
+@media ( min-width: 1200px){
+    .container{
+        width: 1140px;
+    }
+}
+
+@media ( min-width: 1400px){
+    .container{
+        width: 1320px;
+    }
 }
