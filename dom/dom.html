@@ -8,6 +8,47 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/scripts.js"></script>
     <script>
+
+        function addItemList(item){
+            if(item.value !== ''){
+                /*
+                on peut transformer une collection d'éléments HTML en un tableau des ces éléments,
+                en utilisant la méthode statique .from() de la classe Array
+                let unTableau = Array.from(<collection d'éléments HTML>);
+                */
+                const tabLi = Array.from(q('#toDoList').children);
+                if ( tabLi.map((c)=>c.textContent.toLowerCase() ).includes(item.value.toLowerCase())) {
+                    /* 
+                    on parcours tous les éléments li, à chaque élément on vérifie s'il contient le même contenu texte en minuscule que le texte en minuscule inscrit dans le champs de formulaire
+                    */
+                    item.value = '';
+                    item.focus();
+                    return;
+                }
+                const li = document.createElement('li');
+                const content = document.createTextNode(item.value);
+                li.addEventListener('click', function(){
+                    /* si un élément li qu'on va supprimer est le dernier de la liste, on retire la classe qui stylise la iste à son élément parent */
+                    if(this.parentElement.children.length === 1){
+                        /* 
+                        this est l'élément cliqué, 
+                        parentElement dirige vers sont élément parent, 
+                        children est la collection d'éléments enfants du parent, 
+                        length est le nombre d'éléments enfant du parent
+                        si l'élément cliqué pour la suppression est le seul (length === 1) 
+                        c'est le dernier donc on retire la classe de style du parent avec de .remove() l'élément */
+                        q('#toDoList').classList.remove('toDoList');
+                    }
+                    this.remove();
+                });
+                li.appendChild(content);
+                q('#toDoList').appendChild(li);
+                q('#toDoList').classList.add('toDoList');
+                item.value = '';
+            }
+            item.focus();
+        }
+        
         loaded(function(){
             let nbSpan = 1;
 
@@ -21,6 +62,14 @@
                     this.remove();
                 });
                 q('#test').appendChild(testSpan);
+            });
+
+            q('#addItem').addEventListener('click', ()=>addItemList(q('#listItem')));
+
+            q('#listItem').addEventListener('keyup', (event)=>{
+                if(event.key === 'Enter'){
+                    addItemList(q('#listItem'));
+                }
             });
         });
     </script>
