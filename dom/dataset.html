@@ -9,7 +9,33 @@
     <script src="../js/scripts.js"></script>
     <script>
         loaded(function(){
+            const pModule = qA('p[data-module]');
+            //console.log(pModule);
+            pModule.forEach(element => {
+                const module = element.dataset.module;
+                console.log(module);
+                switch(module){
+                    case 'color':
+                        // code a appliquer
+                        const color = element.dataset.color  || '#ff0000';
+                        element.addEventListener('mouseover', function(){
+                            this.style.setProperty('color', color);
+                        });
+                        element.addEventListener('mouseleave', function(){
+                            this.style.removeProperty('color');
 
+                        });
+                    break;
+                    case 'font':
+                    case 'magie':
+                        // code a appliquer
+                        /* mini exo : écrire la partie pour font ou magie */
+                    break;
+                    case 'after':
+                    default :
+                        // code si aucun des cas supérieur ne convient
+                }
+            });
         });
     </script>
 </head>
