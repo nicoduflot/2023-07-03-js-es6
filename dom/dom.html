@@ -80,8 +80,11 @@
                     console.log(link.getAttribute('id'));
                 });
             });
-            
 
+            q('#formValid button[type="submit"]').addEventListener('click', function(event){
+                event.preventDefault();
+                /* soumettre le formulaire si et seulement si nom et prénom sont remplis */
+            });
         });
     </script>
 </head>
@@ -186,6 +189,28 @@
                     <a href="#" id="tata" class="testPreventLink">tata</a> 
                     <a href="#" id="titi" class="testPreventLink">titi</a> 
                 </p>
+                <h3>Exemple sur un formulaire</h3>
+                <form id="formValid">
+                    <fieldset>
+                        <legend>Civilité</legend>
+                        <p>
+                            <label>Nom : </label>
+                            <input type="text" name="nom" />
+                        </p>
+                        <p>
+                            <label>Prénom : </label>
+                            <input type="text" name="prenom" />
+                        </p>
+                        <p>
+                            <button type="submit">
+                                Soumettre
+                            </button>
+                            <button type="reset">
+                                Vider le formulaire
+                            </button>
+                        </p>
+                    </fieldset>
+                </form>
             </article>
         </section>
     </main>
