@@ -71,6 +71,17 @@
                     addItemList(q('#listItem'));
                 }
             });
+
+            /* preventDefault demo */
+
+            qA('a.testPreventLink').forEach((link)=>{
+                link.addEventListener('click', function(event){
+                    event.preventDefault();
+                    console.log(link.getAttribute('id'));
+                });
+            });
+            
+
         });
     </script>
 </head>
@@ -167,6 +178,14 @@
 
                     </ul>
                 </div>
+            </article>
+            <article class="col-100">
+                <h2>PreventDefault()</h2>
+                <p>
+                    <a href="#" id="toto" class="testPreventLink">toto</a> 
+                    <a href="#" id="tata" class="testPreventLink">tata</a> 
+                    <a href="#" id="titi" class="testPreventLink">titi</a> 
+                </p>
             </article>
         </section>
     </main>
