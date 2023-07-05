@@ -143,6 +143,14 @@ ul.toDoList li:not(ul#toDoList li:last-child){
     border-bottom: 1px solid black;
 }
 
+.pionRouge{
+    background-color: darkred;
+}
+
+.pionJaune{
+    background-color: darkgoldenrod;
+}
+
 /* structure */
 
 body{
@@ -243,6 +251,8 @@ body > footer{
     .toggle-element{
         transform: unset;
     }
+
+
 }
 
 @media ( min-width: 992px){

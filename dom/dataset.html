@@ -92,13 +92,35 @@
                 });
             });
 
+            /* menu dynamique */
+
+            /* on repère tous les éléments ayant la classe toggle-menu, ces éléments sont abonnés à unécouteur d'événement sur le clic */
             qA('.toggle-menu').forEach(function(element){
                 element.addEventListener('click', function(){
+                    /* on récupère le sélecteur de la cible (le menu qui doit glisser) */
                     const target = element.dataset.target;
+                    /* on applique ou pas la classe toggle qui anime le glissement du menu */
                     q(target).classList.toggle('toggle-element');
                 });
             });
-            
+
+            /* une grille de puissance 4 */
+
+            let colorNow = 'pionRouge';
+            qA('#p4 th').forEach(function(th){
+                let colonne = 0;
+                th.addEventListener('click', function(){
+                    colonne = this.dataset.col;
+                    for(let i = 6; i > 0; i = i - 1){
+                        const cell = q(`td[data-col="${colonne}"][data-row="${i}"]`);
+                        if( !cell.classList.contains('pionRouge') && !cell.classList.contains('pionJaune')){
+                            cell.classList.add(colorNow);
+                            colorNow = (colorNow === 'pionRouge')? 'pionJaune': 'pionRouge' ;
+                            break;
+                        }
+                    }
+                });
+            })            
         });
     </script>
 </head>
