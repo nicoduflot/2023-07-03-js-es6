@@ -23,18 +23,60 @@
                         });
                         element.addEventListener('mouseleave', function(){
                             this.style.removeProperty('color');
-
                         });
                     break;
                     case 'font':
                     case 'magie':
                         // code a appliquer
                         /* mini exo : écrire la partie pour font ou magie */
+                        const weight = element.dataset.weight  || 'lighter';
+                        element.addEventListener('mouseover', function(){
+                            this.style.setProperty('font-weight', weight);
+                        });
+                        element.addEventListener('mouseleave', function(){
+                            this.style.removeProperty('font-weight');
+                        });
                     break;
                     case 'after':
                     default :
                         // code si aucun des cas supérieur ne convient
                 }
+            });
+
+            /*
+            pointeur ligne - colonne sur un tableau
+
+            1 - récupérer la collection des td ayant les attributs data-column et data-line
+            2 - abonner chaque élément de la collection aux évènements mouseover et mouseleave
+
+            3 - au mouseover :
+                3.1 - repérer la ligne du td (le tr parent)
+                    3.1.1 - mettre la couleur de fond de la ligne rgba(255, 0, 0, 0.5)
+                3.2 - repérer les td de la collection ayant le même data-column
+                    3.2.1 - leur ajouter la couleur de fond rgba(255, 0, 0, 0.5)
+            
+            4 - au mouseout
+                4.1 - virer toutes les couleurs de background
+
+            */
+
+            /*
+            créer constante tdPointeur qui reçoit la collection d'élément possédant les attributs data-column et data-line
+            */
+
+            const tdPointeur = qA('td[data-line][data-column]');
+            console.log(tdPointeur);
+
+            tdPointeur.forEach(function(element){
+                element.addEventListener('mouseover', function(){
+                    element.parentElement.style.background = 'rgba(255, 0, 0, 0.5)';
+                    /* maintenant les colonnes */
+                });
+                element.addEventListener('mouseleave', function(){
+                    element.parentElement.style.removeProperty('background');
+                    /* maintenant les colonnes */
+                });
+
             });
         });
     </script>
