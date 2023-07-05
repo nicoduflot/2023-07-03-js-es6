@@ -39,6 +39,52 @@
                     }
                 }
             });
+
+            /* 
+            mini exercice :
+            déplacer le carré orange en utilisant les boutons
+            */
+
+            /* récupérer le carré en variable */
+
+            const carre = q('#carre');
+
+            /* repérer les clics sur les boutons */
+            
+            /*
+            q('#gauche').addEventListener('click', function(){
+                carre.className = 'gauche';
+            });
+            q('#centre').addEventListener('click', function(){
+                carre.removeAttribute('class');
+            });
+            q('#droite').addEventListener('click', function(){
+                carre.className = 'droite';                
+            });
+            */
+            
+            q('#gauche').addEventListener('click', ()=>carre.className = 'gauche');
+            q('#centre').addEventListener('click', ()=>carre.removeAttribute('class'));
+            q('#droite').addEventListener('click', ()=>carre.className = 'droite');
+
+            /*
+            l'avantage de le faire comme suit :
+            si le carré possède d'autres classes, on ne peut pas simplement supprimer l'attribut class de la div
+            */
+            /*
+            q('#gauche').addEventListener('click', function(){
+                carre.classList.add('gauche');
+                carre.classList.remove('droite');
+            });
+            q('#centre').addEventListener('click', function(){
+                carre.classList.remove('gauche');
+                carre.classList.remove('droite');
+            });
+            q('#droite').addEventListener('click', function(){
+                carre.classList.remove('gauche');
+                carre.classList.add('droite');
+            });
+            */
         });
     </script>
 </head>
@@ -133,7 +179,7 @@
                 </p>
                 <div>
                     <div id="carre">
-                        
+                        HA !
                     </div>
                 </div>
             </article>
