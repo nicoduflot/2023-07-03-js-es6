@@ -84,6 +84,30 @@
             q('#formValid button[type="submit"]').addEventListener('click', function(event){
                 event.preventDefault();
                 /* soumettre le formulaire si et seulement si nom et prénom sont remplis */
+                const inputNom = q('#formValid input[name=nom]');
+                const inputPrenom = q('#formValid input[name=prenom]');
+                /* si les deux champs sont remplis : soumission du formulaire .submit() */
+                if(inputNom.value !== '' && inputPrenom.value !== '' ){
+                    q('.alertFormValid').classList.add('hidden');
+                    q('#formValid').submit();
+                }else{
+                    /* si un ou les deux champs sont vides */
+                    /* on enlève la classe qui cache le message indiquant que des informations sont manquantes */
+                    q('.alertFormValid').classList.remove('hidden');
+                    /* on récupère les inputs dans une collection */
+                    const inputList = qA('#formValid input');
+                    //console.log(inputList);
+                    inputList.forEach(input=>{
+                        /* on vérifie chaque input */
+                        if(input.value === ''){
+                            /* si la valeur est vide, on ajoute à l'input la classe alertInput qui change la couleur de la bordure */
+                            input.classList.add('alertInput');
+                        }else{
+                            /* sinon on enlève la classe */
+                            input.classList.remove('alertInput');
+                        }
+                    });
+                }
             });
         });
     </script>
@@ -191,6 +215,9 @@
                 </p>
                 <h3>Exemple sur un formulaire</h3>
                 <form id="formValid">
+                    <div class="alertFormValid hidden">
+                        Des informations sont manquantes
+                    </div>
                     <fieldset>
                         <legend>Civilité</legend>
                         <p>
