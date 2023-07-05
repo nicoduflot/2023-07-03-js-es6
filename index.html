@@ -5,43 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation JavaScript ES6</title>
+    <link rel="stylesheet" href="./css/bootstrap-icons.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/scripts.js"></script>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>Formation JavaScript ES6</h1>
+            <a href="./">
+                <h1>Formation JavaScript ES6</h1>
+            </a>
+            <i class="bi bi-list toggle-menu" style="font-size: 2rem;color: white;" data-target="#navPrinc"></i>
         </div>
     </header>
     <nav>
         <div class="container">
-            <ul class="navigation">
-                <li>
-                    <details>
-                        <summary>
-                            Introduction
-                        </summary>
-                        <ul class="navigation">
-                            <li>
-                                <a href="./introduction/index.html" title="premiers scripts JS">Intro JS</a>
-                            </li>
-                            <li>
-                                <a href="./introduction/tableaux.html" title="Les tableaux JS JS">Les tableaux</a>
-                            </li>
-                            <li>
-                                <a href="./introduction/fonctions.html" title="Les fonctions JS">Les fonctions</a>
-                            </li>
-                            </li>
-                            <li>
-                                <a href="./introduction/destructuration.html" title="La destructuration">La destructuration</a>
-                            </li>
-                            </li>
-                            <li>
-                                <a href="./introduction/storage.html" title="Storage">Storage</a>
-                            </li>
-                        </ul>
-                    </details>
+            <div class="slide-menu" id="navPrinc">
+                <ul class="navigation">
+                    <li>
+                        <details>
+                            <summary>
+                                Introduction
+                            </summary>
+                            <ul class="navigation">
+                                <li>
+                                    <a href="./introduction/index.html" title="premiers scripts JS">Intro JS</a>
+                                </li>
+                                <li>
+                                    <a href="./introduction/tableaux.html" title="Les tableaux JS JS">Les tableaux</a>
+                                </li>
+                                <li>
+                                    <a href="./introduction/fonctions.html" title="Les fonctions JS">Les fonctions</a>
+                                </li>
+                    </li>
+                    <li>
+                        <a href="./introduction/destructuration.html" title="La destructuration">La destructuration</a>
+                    </li>
+                    </li>
+                    <li>
+                        <a href="./introduction/storage.html" title="Storage">Storage</a>
+                    </li>
+                </ul>
+                </details>
                 </li>
                 <li>
                     <details>
@@ -67,7 +73,8 @@
                 <li></li>
                 <li></li>
                 <li></li>
-            </ul>
+                </ul>
+            </div>
         </div>
     </nav>
     <main class="container">
