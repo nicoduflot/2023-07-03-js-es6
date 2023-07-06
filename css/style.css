@@ -92,6 +92,8 @@
 
 .col-100, .col-50, .col-33, .col-66, .col-25, .col-75{
     width: var(--colonne-1-1);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
 }
 
 .fondGris20{
