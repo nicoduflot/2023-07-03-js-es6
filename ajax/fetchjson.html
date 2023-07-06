@@ -65,6 +65,12 @@
 
             */
 
+            fetch('../resource/bdd.json')
+            .then(reponse=>reponse.json())
+            .then(data=>{
+                //console.log(data);
+                q('#bddjson').innerHTML = bddUser(data);
+            })
 
         });
     </script>
@@ -186,7 +192,7 @@
                     Récupérer la ressource bdd.json, et l'afficher dans la div #bddjson mis en forme.
                 </p>
                 <div id="bddjson">
-                    
+
                 </div>
             </article>
         </section>

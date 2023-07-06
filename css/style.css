@@ -4,15 +4,19 @@
 :root{
     font-family: 'RobotoRegular',Arial, Helvetica, sans-serif;
     --gutter: 0.5rem;
-    --colonne-1-1: calc(100% - 2 * var(--gutter));
-    --colonne-1-2: calc(50% - 2 * var(--gutter));
-    --colonne-1-3: calc(33% - 2 * var(--gutter));
-    --colonne-2-3: calc(66% - 2 * var(--gutter));
-    --colonne-1-4: calc(25% - 2 * var(--gutter));
-    --colonne-3-4: calc(75% - 2 * var(--gutter));
+    --colonne-1-1: calc(100% );
+    --colonne-1-2: calc(50% );
+    --colonne-1-3: calc(33% );
+    --colonne-2-3: calc(66% );
+    --colonne-1-4: calc(25% );
+    --colonne-3-4: calc(75% );
 }
 
 /* déclarations générales */
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
 
 #showP{
     font-family: monospace;
@@ -61,6 +65,20 @@
     transform: translateX(102vw);
 }
 
+.user{
+    border: 1px solid rgba(0,0,0,0.5);
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: var(--gutter);
+    padding-top: var(--gutter);
+    padding-bottom:var(--gutter);
+    cursor: pointer;
+}
+
+.user:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
 /* classes */
 
 .testSpan{
@@ -83,7 +101,7 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-   
+   justify-content: space-evenly;
   }
   .row > * {
     flex-shrink: 0;
@@ -152,6 +170,11 @@ ul.toDoList li:not(ul#toDoList li:last-child){
 
 .pionJaune{
     background-color: darkgoldenrod;
+}
+
+#bddjson{
+    height: 40vh;
+    overflow: auto;
 }
 
 /* structure */

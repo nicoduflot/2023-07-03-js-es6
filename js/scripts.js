@@ -139,6 +139,34 @@ function jsonToTableSearch(data, term = ''){
     return html;
 }
 
+function logUser(id, name, email){
+    console.log(`
+        id : ${id}, nom : ${name}, 
+        email : ${email}`);
+}
+
+function bddUser(data){
+    let html = '';
+    html = html + '<div class="row">';
+    for(item of data){
+        html = html + `
+        <div class="col-50">
+            <div class="user" onclick="logUser(${item.id}, '${item.name}', '${item.email}')">
+                <div class="row">
+                    <div class="col-25">
+                        <b>${item.name} </b>
+                    </div>
+                    <div class="col-75">
+                        <b><a href="mailto:${item.email}" title="envoyer un email à ${item.name}">${item.email}</a> </b>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }
+    html = html + '</div>';
+    return html;
+}
+
 loaded(function () {
     /* menu dynamique */
 
