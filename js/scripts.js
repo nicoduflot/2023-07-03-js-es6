@@ -23,6 +23,29 @@ function qA(selector) {
     return document.querySelectorAll(selector);
 }
 
+function getXhr(){
+    let xhr = null;
+    /* vérifier si le navigateur peut utliser ajax en testant les deux protocoles suivants */
+    if( window.ActiveXObject || window.XMLHttpRequest ){
+        if(window.ActiveXObject){
+            /* si M$ */
+            /* il existe deux protocoles a tester */
+            try{
+                xhr = new ActiveXObject('Msxml2.XMLHTTP');
+            }catch(e){
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+        }else{
+            xhr =new XMLHttpRequest();
+        }
+    }else{
+        console.log('Votre navigateur ne supporte pas AJAX');
+        xhr = false;
+    }
+
+    return xhr;
+}
+
 loaded(function () {
     /* menu dynamique */
 
