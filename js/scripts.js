@@ -76,6 +76,7 @@ function jsonToTable(data){
 }
 
 function jsonToTableSearch(data, term = ''){
+    term = term.toLowerCase();
     let html = '<table class="table text-left">';
     let lineOK = (term === '')? true: false;
     console.log(term);
@@ -88,14 +89,26 @@ function jsonToTableSearch(data, term = ''){
             if((typeof item[key]) === 'object'){
                 for(subkey in item[key]){
                     if((typeof item[key][subkey]) !== 'object' ){
-                        tr = tr + `
-                            <i>${subkey}</i> : <br />
-                            ${item[key][subkey]}<br /><hr />
-                            `;
+                        tr = tr + `<i>${subkey}</i> : <br />`;
+                        if( (item[key][subkey].toString().toLowerCase().indexOf(term) >= 0) && term !== '' ){
+                            lineOK = true;
+                            tr = tr + '<mark>';
+                        }
+                        tr = tr + `${item[key][subkey]}<br />`;
+                        if( (item[key][subkey].toString().toLowerCase().indexOf(term) >= 0) && term !== '' ){
+                            tr = tr + '</mark>';
+                        }
                     }
                 }
             }else{
+                if( item[key].toString().toLowerCase().indexOf(term) >= 0 && term !== '' ){
+                    lineOK = true;
+                    tr = tr + '<mark>';
+                }                
                 tr = tr + `${item[key]}`;
+                if( item[key].toString().toLowerCase().indexOf(term) >= 0 && term !== '' ){
+                    tr = tr + '</mark>';
+                }
             }
             
             tr = tr + `</td>`;

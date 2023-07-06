@@ -53,6 +53,8 @@
                         q('#result').innerText = erreur.message;
                     })
                     .finally();
+                }else{
+                    q('#result').innerHTML = '';
                 }
             });
         });
