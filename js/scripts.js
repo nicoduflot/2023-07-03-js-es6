@@ -46,6 +46,74 @@ function getXhr(){
     return xhr;
 }
 
+function jsonToTable(data){
+    let html = '<table class="table text-left">';
+    for(item of data){
+        //console.log(item);
+        html = html + '<tr>';
+        for(key in item){
+            html = html + `<td><b>${key} : </b><br />`;
+            if((typeof item[key]) === 'object'){
+                for(subkey in item[key]){
+                    if((typeof item[key][subkey]) !== 'object' ){
+                        html = html + `
+                            <i>${subkey}</i> : <br />
+                            ${item[key][subkey]}<br /><hr />
+                            `;
+                    }
+                }
+            }else{
+                html = html + `${item[key]}`;
+            }
+            
+            html = html + `</td>`;
+            //console.log(key, item[key]);
+        }
+        html = html + '</tr>';
+    }
+    html = html + '</table>';
+    return html;
+}
+
+function jsonToTableSearch(data, term = ''){
+    let html = '<table class="table text-left">';
+    let lineOK = (term === '')? true: false;
+    console.log(term);
+    for(item of data){
+        let tr = '<tr>';
+        //console.log(item);
+        //html = html + '<tr>';
+        for(key in item){
+            tr = tr + `<td><b>${key} : </b><br />`;
+            if((typeof item[key]) === 'object'){
+                for(subkey in item[key]){
+                    if((typeof item[key][subkey]) !== 'object' ){
+                        tr = tr + `
+                            <i>${subkey}</i> : <br />
+                            ${item[key][subkey]}<br /><hr />
+                            `;
+                    }
+                }
+            }else{
+                tr = tr + `${item[key]}`;
+            }
+            
+            tr = tr + `</td>`;
+            //console.log(key, item[key]);
+        }
+        tr = tr + '</tr>';
+        if(lineOK){
+            html = html + tr;
+            lineOK = false;
+        }
+        tr = '';
+        //html = html + '</tr>';
+        lineOK = (term === '')? true: false;
+    }
+    html = html + '</table>';
+    return html;
+}
+
 loaded(function () {
     /* menu dynamique */
 
