@@ -46,6 +46,12 @@ function getXhr(){
     return xhr;
 }
 
+
+/**
+ * utilisée sur bdd.html
+ * @param {*} data 
+ * @returns 
+ */
 function jsonToTable(data){
     let html = '<table class="table text-left">';
     for(item of data){
@@ -75,6 +81,12 @@ function jsonToTable(data){
     return html;
 }
 
+/**
+ * utilsée sur fetchjson.html
+ * @param {*} data 
+ * @param {*} term 
+ * @returns 
+ */
 function jsonToTableSearch(data, term = ''){
     term = term.toLowerCase();
     let html = '<table class="table text-left">';
