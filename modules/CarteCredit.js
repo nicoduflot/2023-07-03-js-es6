@@ -1,4 +1,4 @@
-export default CarteCredit{
+export default class CarteCredit{
     constructor(numeroCarte, codePin){
         this.numeroCarte = numeroCarte;
         this._codePin = codePin;
