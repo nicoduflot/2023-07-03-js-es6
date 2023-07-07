@@ -7,4 +7,12 @@ export default class CarteCredit{
     get getCodePin(){
         return this._codePin;
     }
+
+    verifierPin(codePin, numeroCarte){
+        if(codePin === this.getCodePin && numeroCarte === this.numeroCarte){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
