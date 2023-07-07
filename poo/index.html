@@ -198,6 +198,89 @@
                 payer avec la carte
             */
 
+            class Compte{
+                constructor(nom, prenom, solde){
+                    this.nom = nom;
+                    this.prenom = prenom;
+                    this.solde = solde;
+                }
+
+                retirerDeLArgent(montant){
+                    this.solde = this.solde - montant;
+                    return `${montant} € retiré(s), solde ${ (this.solde >= 0)? 'crediteur': 'débiteur' } : ${this.solde}€`;
+                }
+
+                ajouterDeLArgent(montant){
+                    this.solde = this.solde + montant;
+                    return `${montant} € ajouté(s), solde ${ (this.solde >= 0)? 'crediteur': 'débiteur' } : ${this.solde}€`;
+                }
+            }
+
+            class CompteInteret extends Compte{
+                constructor(nom, prenom, solde, tauxInteret){
+                    super(nom, prenom, solde);
+                    this.tauxInteret = tauxInteret;
+                }
+
+                calculerInterets(){
+                    return parseFloat(((this.tauxInteret - 1) * this.solde).toFixed(2), 2);
+                }
+
+                crediterInteret(){
+                    return parseFloat(this.solde = this.solde + this.calculerInterets(), 2);
+                }
+            }
+
+            class CompteCourant extends Compte{
+                constructor(nom, prenom, solde, codePin){
+                    super(nom, prenom, solde);
+                    this._codePin = codePin;
+                }
+
+                get getCodePin(){
+                    return this._codePin;
+                }
+
+                payerParCarte(montant, codePin){
+                    if(this.getCodePin === codePin){
+                        return `Un paiement de ${montant} € a été effectué par carte.\n${this.retirerDeLArgent(montant)}`;
+                    }else{
+                        return `Une tentative de paiement par carte de ${montant} € a échoué`;
+                    }
+                }
+            }
+
+            const unCompte = new Compte('Duflot', 'Nicolas', 1500);
+            console.log(unCompte);
+            console.log(unCompte.solde);
+            console.log(unCompte.retirerDeLArgent(200));
+            console.log(unCompte.retirerDeLArgent(2000));
+            console.log(unCompte.ajouterDeLArgent(200));
+            console.log(unCompte.ajouterDeLArgent(2000));
+            
+            const unCompteInteret = new CompteInteret('Duflot', 'Nicolas', 1500.3, 1.015);
+            console.log(unCompteInteret);
+            console.log(unCompteInteret.solde);
+            console.log(unCompteInteret.tauxInteret);
+            console.log(unCompteInteret.retirerDeLArgent(200));
+            console.log(unCompteInteret.retirerDeLArgent(2000));
+            console.log(unCompteInteret.ajouterDeLArgent(200));
+            console.log(unCompteInteret.ajouterDeLArgent(2000));
+            console.log(unCompteInteret.calculerInterets());
+            console.log(unCompteInteret.crediterInteret());
+
+            const unCompteCourant = new CompteCourant('Duflot', 'Nicolas', 1500, 1234);
+            console.log(unCompteCourant);
+            console.log(unCompteCourant.solde);
+            console.log(unCompteCourant.getCodePin);
+            console.log(unCompteCourant.retirerDeLArgent(200));
+            console.log(unCompteCourant.retirerDeLArgent(2000));
+            console.log(unCompteCourant.ajouterDeLArgent(200));
+            console.log(unCompteCourant.ajouterDeLArgent(2000));
+            console.log(unCompteCourant.payerParCarte(200, 134));
+            console.log(unCompteCourant.payerParCarte(202, 1234));
+            console.log(unCompteCourant.payerParCarte(2000, 1234));
+
         });
     </script>
 </head>
