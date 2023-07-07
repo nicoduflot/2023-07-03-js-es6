@@ -10,7 +10,123 @@
     <script src="../js/scripts.js"></script>
     <script>
         loaded(function () {
-           
+            /*
+            Collections : dictionnaires ( ou tableaux associatifs)
+            Les "index" de la collections sont en réalité des clefs
+            */
+
+            /* illégal ! */
+            let tabAssoPirate = [];
+            tabAssoPirate['toto'] = 23;
+            tabAssoPirate['titi'] = 24;
+            console.log(tabAssoPirate);
+
+            /* la classe Map() est faîte pour ça ! */
+
+            const map = new Map();
+            console.log(map);
+            map.set('lastName', 'Doe');
+            map.set('firstName', 'Jane')
+                .set('email', 'jane.doe@missing.com')
+                .set('phone', '0123456789')
+                .set('phone', '9876543210')
+                .set('details', 'none');
+                /*.set('', 'truc');*/
+            console.log(map);
+            console.log(map.size);
+            console.log(map.get('lastName'));
+
+            map.forEach(function(value, key, data){
+                console.log(` ${key} => ${value} `);
+            });
+
+            console.log(map.has('email'));
+            console.log(map.has(''));
+            if(map.has('email')){
+                console.log(`l'email est ${map.get('email')}`);
+            }else{
+                console.log('l\'email n\'est pas enregistré');
+            }
+            
+            if(map.has('street')){
+                console.log(`street est ${map.get('street')}`);
+            }else{
+                console.log('street n\'est pas enregistré');
+            }
+
+            /* 
+            Map produit un objet itérable, c'est à dire qu'elle contient ce qu'on appelle un "design pattern" iterator 
+            iterator permet de parcourir les données de l'objet comme s'il s'agissait d'un tableau
+            */
+
+            /* 
+            .entries()      => un for sur les clefs et valeurs du Map
+            .keys()         => un for sur les clefs du Map
+            .values()       => un for sur les valeurs du Map
+            */
+
+            //console.log( `|${'0123456789'.padEnd(20, '@')}|` );
+            //console.log( `|${'0123456789'.padStart(20, '@')}|` );
+            console.log( `|${'KEY'.padEnd(20, ' ')}|${'VALUE'.padStart(24, ' ')}|` );
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+            for( let [key, value] of map.entries() ){
+                console.log( `|${key.padEnd(20, ' ')}|${value.padStart(24, ' ')}|` );
+            }
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+            for( let key of map.keys() ){
+                console.log( `|${key.padEnd(20, ' ')}|${'****'.padStart(24, ' ')}|` );
+            }
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+            for( let value of map.values() ){
+                console.log( `|${'****'.padEnd(20, ' ')}|${value.padStart(24, ' ')}|` );
+            }
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+
+            map.delete('phone');
+            console.log(map);
+            map.clear();
+            console.log(map);
+
+            /*
+            Collection : tableau a vlaeur unique => pas d'indice ni de clefs
+            classe Set();
+            */
+
+            const set = new Set(['Jon', 'Aria']);
+            console.log(set);
+            set.add('Sansa')
+                .add('Rob')
+                .add('Joffrey')
+                .add('Sansa')
+                .add('Hodor')
+                .add('Brandon')
+                .add('Oona');
+            
+            console.log(set);
+            /* 
+            dans un Set(), la valeur est aussi la clef (ou la clef est aussi la valeur)
+            */
+            console.log( `|${'KEY'.padEnd(20, ' ')}|${'VALUE'.padStart(24, ' ')}|` );
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+            for( let [key, value] of set.entries() ){
+                console.log( `|${key.padEnd(20, ' ')}|${value.padStart(24, ' ')}|` );
+            }
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+            for( let key of set.keys() ){
+                console.log( `|${key.padEnd(20, ' ')}|${'****'.padStart(24, ' ')}|` );
+            }
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+            for( let value of set.values() ){
+                console.log( `|${'****'.padEnd(20, ' ')}|${value.padStart(24, ' ')}|` );
+            }
+            console.log( `|${''.padEnd(20, '-')}|${''.padStart(24, '-')}|` );
+
+            set.delete('Joffrey');
+
+            if(!set.has('Joffrey')){
+                console.log('Youpi c\'était un méchant');
+            }
+
         });
     </script>
 </head>
@@ -125,7 +241,7 @@
             <article class="col-100">
                 <h2>POO : Les collections</h2>
                 <p>
-                    Les collections sont des structures - objets - proches des tableaux 
+                    Les collections sont des structures - objets - proches des tableaux
                     mais qu'on manipule comme des objets
                 </p>
                 <p>
